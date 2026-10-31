@@ -61,10 +61,6 @@ Game: `POST /api/game/begin`, `answer`, `end` · `GET /api/game/puzzle`, `leader
 
 History only works when you are logged in. It always uses the user id from the session, not an id from the query string.
 
-## For the assignment video
-
-I have to record this myself. Rough timing is in `docs/VIDEO_PLAN.md`.
-
 Write-ups:
 
 - `docs/STEP_BY_STEP.md` — how it was built
