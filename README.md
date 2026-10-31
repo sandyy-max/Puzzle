@@ -11,7 +11,7 @@ Banana API docs: https://marcconrad.com/uob/banana/doc.php
 You need Node.js on your machine.
 
 ```powershell
-cd d:\Level_6\SoE_Assignment\Puzzle
+
 copy .env.example .env
 npm install
 npm start
