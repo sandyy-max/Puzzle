@@ -1,0 +1,23 @@
+{
+  "name": "banana-brain",
+  "version": "1.0.0",
+  "description": "Banana Brain — CIS046-3 Software For Enterprise puzzle game",
+  "main": "Server/server.js",
+  "scripts": {
+    "start": "node Server/server.js",
+    "dev": "node --watch Server/server.js",
+    "test": "node --test Server/tests/*.test.js"
+  },
+  "keywords": ["banana-api", "puzzle", "express"],
+  "author": "Sandhya",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0"
+  }
+}
