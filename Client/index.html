@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banana Brain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@450;550;600&family=Manrope:wght@400;500;650;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">B</div>
+          <div class="brand-text">
+            <h1>Banana Brain</h1>
+            <p>Solve the missing digit</p>
+          </div>
+        </div>
+        <div class="stats-row" aria-live="polite">
+          <div class="stat-pill">
+            <span>Score</span>
+            <strong id="stat-score">0</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Correct</span>
+            <strong id="stat-correct">0</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Played</span>
+            <strong id="stat-played">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="hero-panel">
+        <section class="panel puzzle-panel" aria-label="Puzzle image">
+          <div class="puzzle-stage" id="puzzle-stage">
+            <div class="placeholder" id="placeholder">
+              <h2>Ready when you are</h2>
+              <p>Fetch a fresh Banana API puzzle, then enter the missing digit.</p>
+            </div>
+            <div class="loading-overlay" id="loading" aria-hidden="true">
+              <div class="spinner" role="status" aria-label="Loading"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel play-panel" aria-label="Answer controls">
+          <h2>Your move</h2>
+          <p class="hint">Look at the equation image and type the missing number.</p>
+
+          <form class="answer-form" id="answer-form">
+            <label for="answer">Your answer</label>
+            <input
+              id="answer"
+              name="answer"
+              type="number"
+              inputmode="numeric"
+              placeholder="e.g. 7"
+              autocomplete="off"
+            />
+            <div class="actions">
+              <button type="button" class="btn btn-primary" id="btn-new">New puzzle</button>
+              <button type="submit" class="btn btn-secondary" id="btn-submit">Check answer</button>
+              <button type="button" class="btn btn-ghost" id="btn-reset">Reset score</button>
+            </div>
+          </form>
+
+          <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+        </section>
+      </main>
+
+      <p class="footer-note">
+        Puzzles from the
+        <a href="https://marcconrad.com/uob/banana/doc.php" target="_blank" rel="noopener"
+          >University Banana API</a
+        >
+        · CIS046-3
+      </p>
+    </div>
+
+    <script type="module" src="/js/game.js"></script>
+  </body>
+</html>
