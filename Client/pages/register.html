@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register · Banana Brain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@450;550;600&family=Manrope:wght@400;500;650;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/index.html">
+          <div class="brand-mark">B</div>
+          <div class="brand-text"><h1>Banana Brain</h1><p>Join the board</p></div>
+        </a>
+        <nav class="nav" id="nav"></nav>
+      </header>
+      <section class="panel auth-card">
+        <div class="page-head"><h2>Register</h2><p class="hint">Username 3–20 characters. Password 6+ characters.</p></div>
+        <form id="auth-form" class="auth-form">
+          <label for="username">Username</label>
+          <input id="username" name="username" required minlength="3" maxlength="20" autocomplete="username" />
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required minlength="6" autocomplete="new-password" />
+          <button class="btn btn-primary" type="submit">Create account</button>
+        </form>
+        <div class="feedback" id="feedback"></div>
+        <p class="hint">Already have an account? <a href="/pages/login.html">Log in</a></p>
+      </section>
+      <footer class="site-footer">
+        <p>© 2026 Sandhya · MIT License</p>
+        <p class="love">Made with love by Sandhya</p>
+      </footer>
+    </div>
+    <script type="module">
+      import { renderNav, bindAuthForm } from '../js/auth.js';
+      renderNav();
+      bindAuthForm('register');
+    </script>
+  </body>
+</html>

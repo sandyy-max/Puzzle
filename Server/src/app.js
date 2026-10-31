@@ -6,12 +6,12 @@ const cors = require('cors');
 const { createGameService } = require('./services/game.service');
 const { createGameController } = require('./controllers/game.controller');
 const { createGameRoutes } = require('./routes/game.routes');
+const { createAuthRoutes } = require('./routes/auth.routes');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
 
 function createApp(env) {
   const app = express();
-  const gameService = createGameService(env);
-  const gameController = createGameController(gameService);
+  const gameController = createGameController(createGameService(env));
 
   app.use(
     helmet({
@@ -19,14 +19,7 @@ function createApp(env) {
       crossOriginEmbedderPolicy: false,
     })
   );
-
-  app.use(
-    cors({
-      origin: true,
-      credentials: true,
-    })
-  );
-
+  app.use(cors({ origin: true, credentials: true }));
   app.use(express.json({ limit: '32kb' }));
   app.use(express.urlencoded({ extended: false }));
 
@@ -52,18 +45,16 @@ function createApp(env) {
     res.json({ ok: true, service: 'banana-brain' });
   });
 
+  app.use('/api/auth', createAuthRoutes());
   app.use('/api/game', createGameRoutes(gameController));
 
   app.get('*', (req, res, next) => {
-    if (req.path.startsWith('/api/')) {
-      return next();
-    }
+    if (req.path.startsWith('/api/')) return next();
     res.sendFile(path.join(clientPath, 'index.html'));
   });
 
   app.use(notFound);
   app.use(errorHandler);
-
   return app;
 }
 

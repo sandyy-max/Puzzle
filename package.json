@@ -8,11 +8,16 @@
     "dev": "node --watch Server/server.js",
     "test": "node --test Server/tests/*.test.js"
   },
-  "keywords": ["banana-api", "puzzle", "express"],
+  "keywords": [
+    "banana-api",
+    "puzzle",
+    "express"
+  ],
   "author": "Sandhya",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "better-sqlite3": "^11.7.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",

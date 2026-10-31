@@ -19,7 +19,9 @@ async function fetchPuzzle(bananaApiUrl) {
     });
 
     if (!response.ok) {
-      throw new Error(`Banana API returned HTTP ${response.status}`);
+      const error = new Error(`Banana API returned HTTP ${response.status}`);
+      error.status = 502;
+      throw error;
     }
 
     const data = await response.json();
@@ -39,8 +41,11 @@ async function fetchPuzzle(bananaApiUrl) {
     };
   } catch (error) {
     if (error.name === 'AbortError') {
-      throw new Error('Banana API request timed out');
+      const timeout = new Error('Banana API request timed out');
+      timeout.status = 504;
+      throw timeout;
     }
+    if (!error.status) error.status = 502;
     throw error;
   } finally {
     clearTimeout(timeout);

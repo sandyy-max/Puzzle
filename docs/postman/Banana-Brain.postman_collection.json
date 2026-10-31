@@ -1,0 +1,75 @@
+{
+  "info": {
+    "name": "Banana Brain",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:3000" }],
+  "item": [
+    { "name": "Health", "request": { "method": "GET", "url": "{{baseUrl}}/api/health" } },
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"sandhya\",\n  \"email\": \"sandhya@example.com\",\n  \"password\": \"secret1\"\n}"
+        },
+        "url": "{{baseUrl}}/api/auth/register"
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"sandhya\",\n  \"password\": \"secret1\"\n}"
+        },
+        "url": "{{baseUrl}}/api/auth/login"
+      }
+    },
+    { "name": "Me", "request": { "method": "GET", "url": "{{baseUrl}}/api/auth/me" } },
+    { "name": "Profile", "request": { "method": "GET", "url": "{{baseUrl}}/api/auth/profile" } },
+    {
+      "name": "Begin game",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"difficulty\": \"medium\" }" },
+        "url": "{{baseUrl}}/api/game/begin"
+      }
+    },
+    { "name": "New puzzle", "request": { "method": "GET", "url": "{{baseUrl}}/api/game/puzzle" } },
+    {
+      "name": "Submit answer",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"answer\": 7, \"timedOut\": false }" },
+        "url": "{{baseUrl}}/api/game/answer"
+      }
+    },
+    {
+      "name": "End game",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{}" },
+        "url": "{{baseUrl}}/api/game/end"
+      }
+    },
+    { "name": "Leaderboard", "request": { "method": "GET", "url": "{{baseUrl}}/api/game/leaderboard" } },
+    { "name": "History", "request": { "method": "GET", "url": "{{baseUrl}}/api/game/history" } },
+    {
+      "name": "Logout",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{}" },
+        "url": "{{baseUrl}}/api/auth/logout"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in · Banana Brain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@450;550;600&family=Manrope:wght@400;500;650;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/index.html">
+          <div class="brand-mark">B</div>
+          <div class="brand-text"><h1>Banana Brain</h1><p>Welcome back</p></div>
+        </a>
+        <nav class="nav" id="nav"></nav>
+      </header>
+      <section class="panel auth-card">
+        <div class="page-head"><h2>Log in</h2><p class="hint">Your scores save only while you are signed in.</p></div>
+        <form id="auth-form" class="auth-form">
+          <label for="username">Username</label>
+          <input id="username" name="username" required autocomplete="username" />
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required autocomplete="current-password" />
+          <button class="btn btn-primary" type="submit">Log in</button>
+        </form>
+        <div class="feedback" id="feedback"></div>
+        <p class="hint">New here? <a href="/pages/register.html">Create an account</a></p>
+      </section>
+      <footer class="site-footer">
+        <p>© 2026 Sandhya · MIT License</p>
+        <p class="love">Made with love by Sandhya</p>
+      </footer>
+    </div>
+    <script type="module">
+      import { renderNav, bindAuthForm } from '../js/auth.js';
+      renderNav();
+      bindAuthForm('login');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard · Banana Brain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@450;550;600&family=Manrope:wght@400;500;650;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/index.html">
+          <div class="brand-mark">B</div>
+          <div class="brand-text"><h1>Banana Brain</h1><p>Top scores</p></div>
+        </a>
+        <nav class="nav" id="nav"></nav>
+      </header>
+      <section class="panel list-card">
+        <div class="page-head"><h2>Leaderboard</h2><p class="hint">Finished games from registered players, highest score first.</p></div>
+        <table class="board">
+          <thead>
+            <tr><th>#</th><th>Player</th><th>Score</th><th>Level</th><th>Correct</th></tr>
+          </thead>
+          <tbody id="board-body"></tbody>
+        </table>
+      </section>
+      <footer class="site-footer">
+        <p>© 2026 Sandhya · MIT License</p>
+        <p class="love">Made with love by Sandhya</p>
+      </footer>
+    </div>
+    <script type="module">
+      import { loadLeaderboard } from '../js/leaderboard.js';
+      loadLeaderboard();
+    </script>
+  </body>
+</html>

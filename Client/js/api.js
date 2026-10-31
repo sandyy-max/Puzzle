@@ -1,3 +1,4 @@
+/** Shared fetch helper — always sends the session cookie. */
 async function apiRequest(path, options = {}) {
   const response = await fetch(path, {
     credentials: 'include',
@@ -17,8 +18,7 @@ async function apiRequest(path, options = {}) {
   }
 
   if (!response.ok || (data && data.ok === false)) {
-    const message = (data && data.error) || `Request failed (${response.status})`;
-    const error = new Error(message);
+    const error = new Error((data && data.error) || `Request failed (${response.status})`);
     error.status = response.status;
     throw error;
   }
@@ -28,16 +28,29 @@ async function apiRequest(path, options = {}) {
 
 export const gameApi = {
   health: () => apiRequest('/api/health'),
+  begin: (difficulty) =>
+    apiRequest('/api/game/begin', {
+      method: 'POST',
+      body: JSON.stringify({ difficulty }),
+    }),
   newPuzzle: () => apiRequest('/api/game/puzzle'),
-  submitAnswer: (answer) =>
+  submitAnswer: (answer, timedOut = false) =>
     apiRequest('/api/game/answer', {
       method: 'POST',
-      body: JSON.stringify({ answer }),
+      body: JSON.stringify({ answer, timedOut }),
     }),
+  end: () => apiRequest('/api/game/end', { method: 'POST', body: JSON.stringify({}) }),
   stats: () => apiRequest('/api/game/stats'),
-  reset: () =>
-    apiRequest('/api/game/reset', {
-      method: 'POST',
-      body: JSON.stringify({}),
-    }),
+  leaderboard: () => apiRequest('/api/game/leaderboard'),
+  history: () => apiRequest('/api/game/history'),
+};
+
+export const authApi = {
+  me: () => apiRequest('/api/auth/me'),
+  register: (payload) =>
+    apiRequest('/api/auth/register', { method: 'POST', body: JSON.stringify(payload) }),
+  login: (payload) =>
+    apiRequest('/api/auth/login', { method: 'POST', body: JSON.stringify(payload) }),
+  logout: () => apiRequest('/api/auth/logout', { method: 'POST', body: JSON.stringify({}) }),
+  profile: () => apiRequest('/api/auth/profile'),
 };

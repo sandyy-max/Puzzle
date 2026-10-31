@@ -16,76 +16,105 @@
   <body>
     <div class="app-shell">
       <header class="topbar">
-        <div class="brand">
+        <a class="brand" href="/index.html">
           <div class="brand-mark" aria-hidden="true">B</div>
           <div class="brand-text">
             <h1>Banana Brain</h1>
-            <p>Solve the missing digit</p>
+            <p>Find the missing digit</p>
           </div>
-        </div>
-        <div class="stats-row" aria-live="polite">
-          <div class="stat-pill">
-            <span>Score</span>
-            <strong id="stat-score">0</strong>
-          </div>
-          <div class="stat-pill">
-            <span>Correct</span>
-            <strong id="stat-correct">0</strong>
-          </div>
-          <div class="stat-pill">
-            <span>Played</span>
-            <strong id="stat-played">0</strong>
-          </div>
-        </div>
+        </a>
+        <nav class="nav" id="nav"></nav>
       </header>
+
+      <div class="stats-row" aria-live="polite">
+        <div class="stat-pill"><span>Score</span><strong id="stat-score">0</strong></div>
+        <div class="stat-pill"><span>Correct</span><strong id="stat-correct">0</strong></div>
+        <div class="stat-pill"><span>Played</span><strong id="stat-played">0</strong></div>
+      </div>
 
       <main class="hero-panel">
         <section class="panel puzzle-panel" aria-label="Puzzle image">
           <div class="puzzle-stage" id="puzzle-stage">
             <div class="placeholder" id="placeholder">
-              <h2>Ready when you are</h2>
-              <p>Fetch a fresh Banana API puzzle, then enter the missing digit.</p>
+              <h2>Pick a level and start</h2>
+              <p>Each round is a Banana API picture puzzle. Type the missing number before time runs out.</p>
             </div>
-            <div class="loading-overlay" id="loading" aria-hidden="true">
+            <div class="loading-overlay" id="loading">
               <div class="spinner" role="status" aria-label="Loading"></div>
             </div>
           </div>
         </section>
 
-        <section class="panel play-panel" aria-label="Answer controls">
-          <h2>Your move</h2>
-          <p class="hint">Look at the equation image and type the missing number.</p>
+        <section class="panel play-panel">
+          <h2>Play</h2>
+          <p class="hint">Pick a level, then start. The timer begins when the puzzle loads.</p>
+
+          <div id="difficulty" data-value="medium" class="level-row">
+            <button type="button" data-level="easy">Easy</button>
+            <button type="button" data-level="medium" class="active">Medium</button>
+            <button type="button" data-level="hard">Hard</button>
+          </div>
+
+          <div class="timer" id="timer">--</div>
 
           <form class="answer-form" id="answer-form">
             <label for="answer">Your answer</label>
-            <input
-              id="answer"
-              name="answer"
-              type="number"
-              inputmode="numeric"
-              placeholder="e.g. 7"
-              autocomplete="off"
-            />
+            <input id="answer" name="answer" type="number" inputmode="numeric" placeholder="e.g. 7" autocomplete="off" />
             <div class="actions">
-              <button type="button" class="btn btn-primary" id="btn-new">New puzzle</button>
-              <button type="submit" class="btn btn-secondary" id="btn-submit">Check answer</button>
-              <button type="button" class="btn btn-ghost" id="btn-reset">Reset score</button>
+              <button type="button" class="btn btn-primary" id="btn-new">Start game</button>
+              <button type="submit" class="btn btn-secondary" id="btn-submit">Check</button>
+              <button type="button" class="btn btn-ghost" id="btn-next">Next puzzle</button>
+              <button type="button" class="btn btn-ghost" id="btn-end">End game</button>
             </div>
           </form>
 
-          <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+          <div class="feedback" id="feedback" role="status"></div>
         </section>
       </main>
 
-      <p class="footer-note">
-        Puzzles from the
-        <a href="https://marcconrad.com/uob/banana/doc.php" target="_blank" rel="noopener"
-          >University Banana API</a
-        >
-        · CIS046-3
-      </p>
-    </div>
+      <section class="panel rules-panel" aria-label="Rules and tips">
+        <div>
+          <h2>Rules</h2>
+          <ul>
+            <li>Look at the picture and type the missing digit.</li>
+            <li>The timer starts when the puzzle loads.</li>
+            <li>A wrong or late answer scores 0 for that round.</li>
+            <li>Click <strong>End game</strong> to lock your score.</li>
+          </ul>
+          <div class="level-cards">
+            <article>
+              <h3>Easy</h3>
+              <p>45 seconds</p>
+              <p>5 points</p>
+            </article>
+            <article>
+              <h3>Medium</h3>
+              <p>30 seconds</p>
+              <p>10 points</p>
+            </article>
+            <article>
+              <h3>Hard</h3>
+              <p>20 seconds</p>
+              <p>15 points</p>
+            </article>
+          </div>
+        </div>
+        <div>
+          <h2>Tips</h2>
+          <ul>
+            <li>Register if you want a place on the leaderboard.</li>
+            <li>Guests can practise; guest scores are not saved.</li>
+            <li>Use <strong>Next puzzle</strong> for another round in the same game.</li>
+            <li>Hard pays more, but the clock is shorter.</li>
+          </ul>
+        </div>
+      </section>
 
+      <footer class="site-footer">
+        <p>© 2026 Sandhya · MIT License</p>
+        <p class="love">Made with love by Sandhya</p>
+      </footer>
+    </div>
     <script type="module" src="/js/game.js"></script>
   </body>
 </html>

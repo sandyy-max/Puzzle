@@ -13,10 +13,16 @@ npm start
 
 Open http://localhost:3000
 
+Docs: [step by step](docs/STEP_BY_STEP.md) · [testing](docs/TESTING.md) · [critical evaluation](docs/CRITICAL_EVALUATION.md)
+
+## Features
+
+- Banana API puzzles (solution stays on the server)
+- Easy / Medium / Hard timers
+- Register, login, logout, profile
+- Leaderboard and personal game history
+- Guest play (scores save only when logged in)
+
 ## Stack
 
-HTML/CSS/JS client · Express · SQLite · [Banana API](https://marcconrad.com/uob/banana/doc.php)
-
-## Step 2 status
-
-Puzzle fetch, answer check (server-side), score in session, loading/error UI.
+HTML / CSS / JS · Express · SQLite · [Banana API](https://marcconrad.com/uob/banana/doc.php)
