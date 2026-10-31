@@ -1,3 +1,4 @@
+// JSON errors for the client. Hide internals when NODE_ENV is production.
 function notFound(req, res) {
   res.status(404).json({ ok: false, error: 'Route not found' });
 }

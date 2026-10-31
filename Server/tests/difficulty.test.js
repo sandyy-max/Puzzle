@@ -1,3 +1,4 @@
+// Unknown level names fall back to medium.
 const { describe, it } = require('node:test');
 const assert = require('node:assert/strict');
 const { resolveDifficulty, getDifficultyConfig } = require('../src/utils/difficulty');

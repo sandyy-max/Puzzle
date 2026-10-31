@@ -1,3 +1,4 @@
+// User table access. All queries are parameterised.
 const { getDb } = require('../config/database');
 
 function createUser({ username, email, passwordHash }) {

@@ -1,3 +1,4 @@
+// Test helpers: fake Banana API, throwaway SQLite, cookie-aware client.
 const http = require('http');
 const path = require('path');
 const os = require('os');

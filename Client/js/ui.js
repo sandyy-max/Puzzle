@@ -1,3 +1,4 @@
+// Small DOM helpers shared by the play screen.
 export function $(selector, root = document) {
   return root.querySelector(selector);
 }

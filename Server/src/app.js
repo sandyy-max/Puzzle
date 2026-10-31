@@ -1,3 +1,4 @@
+// Wires middleware, static Client files, and /api routes.
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -15,6 +16,7 @@ function createApp(env) {
 
   app.use(
     helmet({
+      // Banana puzzle images are hosted on another domain.
       contentSecurityPolicy: false,
       crossOriginEmbedderPolicy: false,
     })
@@ -28,7 +30,7 @@ function createApp(env) {
       name: 'banana.sid',
       secret: env.sessionSecret,
       resave: false,
-      saveUninitialized: true,
+      saveUninitialized: true, // guests still need a session for the current puzzle
       cookie: {
         httpOnly: true,
         sameSite: 'lax',

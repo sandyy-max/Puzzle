@@ -1,3 +1,4 @@
+// Thin HTTP layer around game.service — no Banana calls here.
 function createGameController(gameService) {
   function begin(req, res, next) {
     try {

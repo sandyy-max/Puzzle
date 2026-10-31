@@ -1,3 +1,4 @@
+// SQLite setup. Tables are created on first run.
 const fs = require('fs');
 const path = require('path');
 const Database = require('better-sqlite3');

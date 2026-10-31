@@ -1,0 +1,19 @@
+{
+  "title": "npm package.json",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "description": { "type": "string" },
+    "main": { "type": "string" },
+    "scripts": { "type": "object" },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "author": { "type": "string" },
+    "license": { "type": "string" },
+    "private": { "type": "boolean" },
+    "dependencies": { "type": "object" }
+  }
+}

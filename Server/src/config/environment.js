@@ -1,3 +1,4 @@
+// Fail fast if .env is missing required keys.
 const path = require('path');
 const dotenv = require('dotenv');
 

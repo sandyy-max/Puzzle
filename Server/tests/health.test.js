@@ -1,3 +1,4 @@
+// Smoke test: the process can boot and answer /api/health.
 const { describe, it } = require('node:test');
 const assert = require('node:assert/strict');
 const path = require('path');

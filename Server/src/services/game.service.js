@@ -1,3 +1,4 @@
+// Game rules live here: start round, mark answers, end run, leaderboard.
 const { fetchPuzzle } = require('./bananaApi.service');
 const gameModel = require('../models/game.model');
 const { resolveDifficulty, getDifficultyConfig } = require('../utils/difficulty');

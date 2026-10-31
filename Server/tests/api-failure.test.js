@@ -1,3 +1,4 @@
+// Banana API down, wrong answer, duplicate username.
 const { describe, it, before, after } = require('node:test');
 const assert = require('node:assert/strict');
 const { startBananaMock, bootApp, closeAll, client } = require('./helpers');

@@ -1,4 +1,4 @@
-/** Blocks the route unless the session has a logged-in user. */
+/** 401 unless the session has a userId. */
 function requireAuth(req, res, next) {
   if (!req.session?.userId) {
     return res.status(401).json({ ok: false, error: 'Login required.' });

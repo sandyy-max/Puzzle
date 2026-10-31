@@ -1,3 +1,4 @@
+// Play screen: buttons, timer, and calls to the game API.
 import { gameApi } from './api.js';
 import { renderNav } from './auth.js';
 import {
@@ -28,6 +29,7 @@ function paintTimer() {
   el.classList.toggle('late', remaining <= 5);
 }
 
+// Client countdown. The server still rejects late answers.
 function startTimer(seconds) {
   stopTimer();
   remaining = seconds;
@@ -157,6 +159,7 @@ function bindDifficulty() {
   });
 }
 
+// DOM events — this is the event-driven part of the client.
 function bindEvents() {
   $('#btn-new')?.addEventListener('click', beginAndLoad);
   $('#btn-next')?.addEventListener('click', nextPuzzle);

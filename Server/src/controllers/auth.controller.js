@@ -1,3 +1,4 @@
+// Auth HTTP handlers. Session cookie is the proof of login.
 const authService = require('../services/auth.service');
 
 async function register(req, res, next) {

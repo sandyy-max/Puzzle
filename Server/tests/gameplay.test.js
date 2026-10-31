@@ -1,3 +1,4 @@
+// Scoring, timeout, and player-B cannot read player-A history.
 const { describe, it, before, after } = require('node:test');
 const assert = require('node:assert/strict');
 const { startBananaMock, bootApp, closeAll, client } = require('./helpers');

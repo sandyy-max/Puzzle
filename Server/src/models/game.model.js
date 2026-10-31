@@ -1,3 +1,4 @@
+// Games and rounds. Leaderboard only includes finished, named players.
 const { getDb } = require('../config/database');
 
 function startGame({ userId, difficulty }) {

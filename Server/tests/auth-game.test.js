@@ -1,3 +1,4 @@
+// Register, session cookie, and guest history blocked.
 const { describe, it, before, after } = require('node:test');
 const assert = require('node:assert/strict');
 const path = require('path');

@@ -1,4 +1,4 @@
-/** Shared fetch helper — always sends the session cookie. */
+/** fetch wrapper. credentials: 'include' keeps banana.sid on every call. */
 async function apiRequest(path, options = {}) {
   const response = await fetch(path, {
     credentials: 'include',

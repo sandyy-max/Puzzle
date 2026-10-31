@@ -1,3 +1,4 @@
+// Register / login rules. Password hash never leaves this layer.
 const bcrypt = require('bcryptjs');
 const userModel = require('../models/user.model');
 const { isValidUsername, isValidEmail, isValidPassword } = require('../utils/validators');

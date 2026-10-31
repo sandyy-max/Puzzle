@@ -1,3 +1,4 @@
+// Process entry: load .env, open SQLite, then listen.
 const { loadEnvironment } = require('./src/config/environment');
 const { initDatabase } = require('./src/config/database');
 const { createApp } = require('./src/app');

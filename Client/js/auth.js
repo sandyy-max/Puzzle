@@ -1,3 +1,4 @@
+// Nav + login/register forms. Cookie session is checked via /api/auth/me.
 import { authApi } from './api.js';
 import { $ } from './ui.js';
 

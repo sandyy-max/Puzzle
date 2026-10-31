@@ -1,3 +1,4 @@
+// Leaderboard and profile tables.
 import { gameApi, authApi } from './api.js';
 import { renderNav } from './auth.js';
 import { $ } from './ui.js';

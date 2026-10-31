@@ -1,3 +1,4 @@
+// Simple field checks used before we touch the database.
 function isValidUsername(value) {
   return typeof value === 'string' && /^[a-zA-Z0-9_]{3,20}$/.test(value);
 }

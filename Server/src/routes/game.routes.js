@@ -1,3 +1,4 @@
+// /api/game — puzzle flow, board, history (history needs a login)
 const express = require('express');
 const { requireAuth } = require('../middleware/auth');
 
